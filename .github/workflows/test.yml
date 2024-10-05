@@ -158,3 +158,5 @@ jobs:
         with:
           print-hash: true
           attestations: true
+          verbose: true
+          repository-url: https://test.pypi.org/legacy/
