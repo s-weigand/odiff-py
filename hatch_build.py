@@ -118,15 +118,10 @@ class CustomBuildHook(BuildHookInterface):
 
     def initialize(self, _version: str, build_data: dict[str, Any]) -> None:  # noqa: DOC
         """Download odiff binary and update build data."""
-        # Linux tag is after many/musl; packaging tools are required to skip
-        # many/musl, see https://github.com/pypa/packaging/issues/160
-        tag = next(
-            iter(
-                t
-                for t in sys_tags()
-                if "manylinux" not in t.platform and "musllinux" not in t.platform
-            )
-        )
+        if any("musllinux" in t.platform for t in sys_tags()):
+            msg = "The upstream odiff project does currently not support 'musllinux'."
+            raise ValueError(msg)
+        tag = next(iter(t for t in sys_tags()))
         download_odiff_bin()
 
         build_data["force_include"][ODIFF_BIN.as_posix()] = REL_DEST_PATH
