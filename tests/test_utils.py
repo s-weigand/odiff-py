@@ -37,7 +37,7 @@ def test_run_odiff():
 def test_run_odiff_bad_option():
     """Get error message if command fails."""
     returncode, stdout, stderr = run_odiff("--unknown")
-    assert returncode == 124
+    assert returncode == 124  # noqa: PLR2004
     assert stdout.rstrip() == ""
     assert stderr.startswith("odiff: unknown option '--unknown'")
 

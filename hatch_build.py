@@ -50,7 +50,7 @@ def get_release_assets(tag_name: str = ODIFF_VERSION) -> tuple[list[dict[str, An
     resp = httpx.get(
         "https://api.github.com/repos/dmtrKovalenko/odiff/releases", headers=EXTRA_HEADERS
     )
-    if resp.status_code != 200:
+    if resp.status_code != 200:  # noqa: PLR2004
         msg = f"Bad API response: {resp}"
         raise ValueError(msg)
     for release in resp.json():

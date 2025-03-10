@@ -14,6 +14,6 @@ def test_command_line_interface():
     cmd = [sys.executable, "-m", "odiff_py", "--help=plain"]
     if platform.system().lower() == "windows":
         cmd = " ".join(cmd)
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True)  # noqa: PLW1510, S603
     assert result.returncode == 0
     assert result.stdout.rstrip() == (TEST_DATA / "help.txt").read_text().rstrip()
