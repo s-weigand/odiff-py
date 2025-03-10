@@ -74,7 +74,7 @@ def run_odiff(*args: str, capture_output: bool = True) -> tuple[int, str, str]:
     cmd: str | Sequence[str] = (quote(ODIFF_EXE.as_posix()), *args)
     if platform.system().lower() == "windows":
         cmd = " ".join(cmd)
-    result = subprocess.run(cmd, capture_output=capture_output, text=True)
+    result = subprocess.run(cmd, capture_output=capture_output, text=True)  # noqa: PLW1510, S603
     return result.returncode, result.stdout, result.stderr
 
 

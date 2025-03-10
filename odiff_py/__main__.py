@@ -7,7 +7,7 @@ import sys
 from odiff_py.utils import run_odiff
 
 
-def main():
+def main() -> None:
     """Run odiff binary with CLI args."""
     run_odiff(*sys.argv[1:], capture_output=False)
 

@@ -83,7 +83,7 @@ class DiffResult:
         result_lines = [
             "|Meaning|Value|",
             "|-------|-----|",
-            f"|Status|{self.status.name.replace('_',' ').capitalize()}|",
+            f"|Status|{self.status.name.replace('_', ' ').capitalize()}|",
             f"|Diff Pixel Count|{self.diff_pixel_count}|",
             f"|Diff Percentage|{self.diff_percentage:.2f}%|",
         ]
@@ -93,7 +93,7 @@ class DiffResult:
         return "\n".join(result_lines)
 
 
-def _odiff(  # noqa: C901
+def _odiff(  # noqa: C901, PLR0913
     tmp_dir: Path,
     base: str | Path | Image.Image,
     comparing: str | Path | Image.Image,
@@ -201,7 +201,7 @@ def _odiff(  # noqa: C901
     )
 
 
-def odiff(
+def odiff(  # noqa: PLR0913
     base: str | Path | Image.Image,
     comparing: str | Path | Image.Image,
     diff: str | Path | None = None,

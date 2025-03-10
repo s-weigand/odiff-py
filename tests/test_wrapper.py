@@ -44,7 +44,7 @@ def check_default_result(result: DiffResult):
     assert same_image_array(result.base_image, Image.open(TEST_DATA / "tiger-1.jpg"))
     assert same_image_array(result.comparing_image, Image.open(TEST_DATA / "tiger-2.jpg"))
     assert result.status == CompareStatus.PIXEL_DIFFERENCE
-    assert result.diff_pixel_count == 7789
+    assert result.diff_pixel_count == 7789  # noqa: PLR2004
     assert result.diff_percentage == pytest.approx(1.167766)
 
 

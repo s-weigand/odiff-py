@@ -10,7 +10,7 @@ from odiff_py.wrapper import CompareStatus  # noqa: E402
 from odiff_py.wrapper import DiffResult  # noqa: E402
 from odiff_py.wrapper import odiff  # noqa: E402
 
-__all__ = ["odiff", "DiffResult", "CompareStatus"]
+__all__ = ["CompareStatus", "DiffResult", "odiff"]
 
 
 __author__ = """Sebastian Weigand"""
