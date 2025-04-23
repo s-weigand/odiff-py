@@ -7,7 +7,6 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![PyPi Version](https://img.shields.io/pypi/v/odiff_py.svg)](https://pypi.org/project/odiff-py/)
-[![Conda Version](https://img.shields.io/conda/vn/conda-forge/odiff-py.svg)](https://anaconda.org/conda-forge/odiff-py)
 [![Supported Python Versions](https://img.shields.io/pypi/pyversions/odiff_py.svg)](https://pypi.org/project/odiff-py/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
