@@ -19,11 +19,58 @@
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-Odiff python wrapper
+Use [`odiff`](https://github.com/dmtrKovalenko/odiff) from python without the file dump and `subprocess` hassle.
+
+![animated diff](https://github.com/s-weigand/odiff-py/raw/refs/heads/main/tests/data/tiger-compare.apng)
+
+## Installation
+
+### Generic installation
+
+No matter your dependency and environment management system you can install `odiff-py` using
+[`pip`](https://pip.pypa.io/en/stable/getting-started/) with:
+
+```console
+pip install odiff-py
+```
+
+### Generic installation using `uv`
+
+For a quicker installation into any python environment you can use [`uv`](https://docs.astral.sh/uv/) and the following command:
+
+```console
+uv pip install odiff-py
+```
+
+### Add to project with `uv`
+
+You most likely want to use `odiff-py` in visual regression testing and thus add it to your project.
+If you are `uv` this is easily done using.
+
+```console
+uv add odiff-py
+```
+
+> [!NOTE]
+> Only add it as optional dependency using the `--optional` CLI option (e.g. `uv add odiff-py --optional test`)
+> or as `uv` development dependency with the `--dev` flag (`uv add odiff-py --dev`)
 
 ## Features
 
-- TODO
+- Pythonic API for Image comparison using `odiff`
+- Pillow images as input and result in result
+- Support for all `odiff` options
+- First class notebook support
+- Support for ignore areas including optional overlay in result images
+- [APN](https://en.wikipedia.org/wiki/APNG) generation for result (`base` -> `compare` -> `diff` cycle)
+
+## Road Map
+
+Future planned features are:
+
+- Remote image usage (http links)
+- `pytest` plugin
+- `behave` plugin
 
 ## Contributors ✨
 
