@@ -172,7 +172,7 @@ class APNG:
         if overlay_image is not None:
             images = deepcopy(images)
             for image in filter(lambda img: img is not None, images):
-                cast(Image.Image, image).paste(overlay_image, (0, 0), overlay_image)
+                cast("Image.Image", image).paste(overlay_image, (0, 0), overlay_image)
         return cls(
             data=png_images_to_apng_bytes(images=images, delay_num=delay_num, delay_den=delay_den)
         )
