@@ -102,7 +102,7 @@ class DiffResult:
     def create_apng(
         self,
         *,
-        delay_num: int = 500,
+        delay_num: int = 1000,
         delay_den: int = 1000,
         color: str = "red",
         fill: float = 0.2,
@@ -112,7 +112,7 @@ class DiffResult:
         Parameters
         ----------
         delay_num : int
-            The delay numerator for frames. Defaults to 500
+            The delay numerator for frames. Defaults to 1000
         delay_den : int
             The delay denominator for frames. Defaults to 1000
         color : str

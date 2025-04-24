@@ -101,7 +101,7 @@ def png_images_to_apng_bytes(
     images: Iterable[Image.Image | None],
     out_file: str | Path | None = None,
     *,
-    delay_num: int = 500,
+    delay_num: int = 1000,
     delay_den: int = 1000,
 ) -> bytes:
     """Convert png images to ``bytes`` representation of an animated png.
@@ -113,7 +113,7 @@ def png_images_to_apng_bytes(
     out_file : str | Path | None
         Path to an output file to generate. Defaults to None
     delay_num : int
-        The delay numerator for frames. Defaults to 500
+        The delay numerator for frames. Defaults to 1000
     delay_den : int
         The delay denominator for frames. Defaults to 1000
 
@@ -148,7 +148,7 @@ class APNG:
         cls,
         images: Iterable[Image.Image | None],
         *,
-        delay_num: int = 500,
+        delay_num: int = 1000,
         delay_den: int = 1000,
         overlay_image: Image.Image | None = None,
     ) -> Self:
@@ -159,7 +159,7 @@ class APNG:
         images : Iterable[Image.Image  |  None]
             Images to create the apng instance from.
         delay_num : int
-            The delay numerator for frames. Defaults to 500
+            The delay numerator for frames. Defaults to 1000
         delay_den : int
             The delay denominator for frames. Defaults to 1000
         overlay_image: Image.Image | None
