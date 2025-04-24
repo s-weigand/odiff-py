@@ -21,7 +21,12 @@
 
 Use [`odiff`](https://github.com/dmtrKovalenko/odiff) from python without the file dump and `subprocess` hassle.
 
+<details open="true">
+  <summary>Animated image diff</summary>
+
 ![animated diff](https://github.com/s-weigand/odiff-py/raw/refs/heads/main/tests/data/tiger-compare.apng)
+
+</details>
 
 ## Installation
 
