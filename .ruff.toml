@@ -6,14 +6,16 @@ extend-exclude = [
 # Same as Black.
 line-length = 99
 
-# Assume Python 3.8.
-target-version = "py38"
+# Assume Python 3.10.
+target-version = "py310"
 
 # Enable using ruff with notebooks
 extend-include = [ "*.ipynb" ]
 
 [lint]
-select = [ "ALL" ]
+select = [
+  "ALL",
+]
 
 ignore = [
   "D202",
@@ -25,19 +27,18 @@ ignore = [
   "RUF003",
   "B008",
   "S101",   # Use of `assert` detected
-  "COM812", # Trailing comma missing
+  "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in `__getattribute__`
   # Covered by formatter
   "ISC001",
+  "COM812", # Trailing comma missing
 ]
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [lint.per-file-ignores]
-"tests/*" = [
-  "ARG001",
-  "ANN201", # Missing return type annotation for public function
-]
+"tests/*" = [ "ARG001", "ANN201", "TC006" ]
+"*.ipynb" = [ "A004" ]
 
 [lint.isort]
 required-imports = [ "from __future__ import annotations" ]

@@ -5,11 +5,13 @@ from __future__ import annotations
 import base64
 import platform
 import subprocess
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 from shlex import quote
 from tempfile import TemporaryDirectory
 from typing import TYPE_CHECKING
+from typing import cast
 
 from apngasm_python.apngasm import APNGAsmBinder
 from PIL import Image
@@ -99,7 +101,7 @@ def png_images_to_apng_bytes(
     images: Iterable[Image.Image | None],
     out_file: str | Path | None = None,
     *,
-    delay_num: int = 500,
+    delay_num: int = 1000,
     delay_den: int = 1000,
 ) -> bytes:
     """Convert png images to ``bytes`` representation of an animated png.
@@ -111,7 +113,7 @@ def png_images_to_apng_bytes(
     out_file : str | Path | None
         Path to an output file to generate. Defaults to None
     delay_num : int
-        The delay numerator for frames. Defaults to 500
+        The delay numerator for frames. Defaults to 1000
     delay_den : int
         The delay denominator for frames. Defaults to 1000
 
@@ -146,8 +148,9 @@ class APNG:
         cls,
         images: Iterable[Image.Image | None],
         *,
-        delay_num: int = 500,
+        delay_num: int = 1000,
         delay_den: int = 1000,
+        overlay_image: Image.Image | None = None,
     ) -> Self:
         """Create new instance from images.
 
@@ -156,14 +159,20 @@ class APNG:
         images : Iterable[Image.Image  |  None]
             Images to create the apng instance from.
         delay_num : int
-            The delay numerator for frames. Defaults to 500
+            The delay numerator for frames. Defaults to 1000
         delay_den : int
             The delay denominator for frames. Defaults to 1000
+        overlay_image: Image.Image | None
+            Overlay to apply to all images of the ``apng`` animation. Defaults to ``None``.
 
         Returns
         -------
         Self
         """
+        if overlay_image is not None:
+            images = deepcopy(images)
+            for image in filter(lambda img: img is not None, images):
+                cast("Image.Image", image).paste(overlay_image, (0, 0), overlay_image)
         return cls(
             data=png_images_to_apng_bytes(images=images, delay_num=delay_num, delay_den=delay_den)
         )
