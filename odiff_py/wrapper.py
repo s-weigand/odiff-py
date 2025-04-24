@@ -7,8 +7,8 @@ from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from typing import TYPE_CHECKING
 from typing import Any
-from typing import Iterable
 from typing import NamedTuple
 
 from PIL import Image
@@ -18,6 +18,9 @@ from PIL.ImageColor import getrgb
 from odiff_py.utils import APNG
 from odiff_py.utils import load_image
 from odiff_py.utils import run_odiff
+
+if TYPE_CHECKING:
+    from collections.abc import Iterable
 
 
 class CompareStatus(Enum):
