@@ -233,7 +233,6 @@ def test_ignore_areas_on_result_images(default_test_args: DefaultTestArgs):
         odiff(diff_result.comparing_image, load_image(default_test_args["comparing"])).status
         == CompareStatus.IMAGE_MATCH
     )
-    odiff(diff_result.diff_image, original_diff_image).create_apng().save("fail.apng")
     assert odiff(diff_result.diff_image, original_diff_image).status == CompareStatus.IMAGE_MATCH
 
     diff_result.show_ignore_areas_overlay = True
