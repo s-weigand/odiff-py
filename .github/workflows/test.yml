@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⏬ Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⏬ Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🐍 Set up Python 3.10
         uses: actions/setup-python@v5
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ⏬ Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🐍 Set up Python 3.10
         uses: actions/setup-python@v5
@@ -80,7 +80,7 @@ jobs:
 
     steps:
       - name: ⏬ Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 🐍 Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -130,7 +130,7 @@ jobs:
     needs: [pre-commit, docs]
     steps:
       - name: ⏬ Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: 📦 Build wheel and test wheel
         run: |
           python -m pip install cibuildwheel==2.21.2
@@ -150,7 +150,7 @@ jobs:
       id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
       - name: ⏬ Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: ⏬📦 Download wheels
         uses: actions/download-artifact@v4
